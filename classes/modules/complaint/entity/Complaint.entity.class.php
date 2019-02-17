@@ -24,48 +24,74 @@ class PluginComplaint_ModuleComplaint_EntityComplaint extends Entity
             'label' => $this->Lang_Get('plugin.complaint.error.complaint_text_limit'),
             'on' => array('complaint'));
     }
-    
-    public function getId() {
+
+    public function getId()
+    {
         return $this->_getDataOne('complaint_id');
     }
-    public function getUserId() {
-        return $this->_getDataOne('user_id');
-    }
-    public function getUser() {
+
+    public function getUser()
+    {
         return $this->User_GetUserById($this->getUserId());
     }
-    public function getTopic() {
+
+    public function getUserId()
+    {
+        return $this->_getDataOne('user_id');
+    }
+
+    public function getTopic()
+    {
         return $this->Topic_GetTopicById($this->getTopicId());
     }
-    public function getTopicId() {
+
+    public function getTopicId()
+    {
         return $this->_getDataOne('topic_id');
     }
-    public function getText() {
+
+    public function getText()
+    {
         return $this->_getDataOne('complaint_text');
     }
-    public function getDateAdd() {
+
+    public function getDateAdd()
+    {
         return $this->_getDataOne('complaint_date_add');
     }
-    public function getStatus() {
+
+    public function getStatus()
+    {
         return $this->_getDataOne('complaint_status');
     }
-    
-    public function setId($data) {
-        $this->_aData['complaint_id']=$data;
+
+    public function setId($data)
+    {
+        $this->_aData['complaint_id'] = $data;
     }
-    public function setUserId($data) {
-        $this->_aData['user_id']=$data;
+
+    public function setUserId($data)
+    {
+        $this->_aData['user_id'] = $data;
     }
-    public function setTopicId($data) {
-        $this->_aData['topic_id']=$data;
+
+    public function setTopicId($data)
+    {
+        $this->_aData['topic_id'] = $data;
     }
-    public function setText($data) {
-        $this->_aData['complaint_text']=$data;
+
+    public function setText($data)
+    {
+        $this->_aData['complaint_text'] = $data;
     }
-    public function setDateAdd($data) {
-        $this->_aData['complaint_date_add']=$data;
+
+    public function setDateAdd($data)
+    {
+        $this->_aData['complaint_date_add'] = $data;
     }
-    public function setStatus($data) {
-        $this->_aData['complaint_status']=$data;
+
+    public function setStatus($data)
+    {
+        $this->_aData['complaint_status'] = $data;
     }
 }

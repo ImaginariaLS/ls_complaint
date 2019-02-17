@@ -24,7 +24,7 @@ class PluginComplaint extends Plugin
         }
         return true;
     }
-    
+
     public function Init()
     {
         $this->Viewer_AppendScript(Plugin::GetTemplatePath(__CLASS__) . 'js/script.js');

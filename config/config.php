@@ -17,12 +17,16 @@ $config = array();
 
 // Отправлять ли администратору уведомление о жалобе?
 $config['send_admin_mail'] = true;
+
 // E-mail администратора
 $config['admin_mail'] = 'admin@admin.adm';
+
 // Максимальная длина текста жалобы
 $config['text']['max_length'] = 250;
+
 // Минимальная длина текста жалобы
 $config['text']['min_length'] = 2;
+
 // Сколько жалоб выводить на страницы админки
 $config['per_page'] = 20;
 

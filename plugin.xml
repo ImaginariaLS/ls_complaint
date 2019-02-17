@@ -4,11 +4,12 @@
         <lang name="default">Жалобы (Complaint)</lang>
     </name>
     <author>
-        <lang name="default">Сделано руками @ Сергей Сарафанов (sersar) | ВК: vk.com/sersar | E-mail: sersar@ukr.net</lang>
+        <lang name="default">Сделано руками @ Сергей Сарафанов (sersar) | ВК: vk.com/sersar | E-mail: sersar@ukr.net
+        </lang>
     </author>
     <version>1.0.0</version>
     <requires>
-        <livestreet>1.0.1</livestreet>
+        <livestreet>1.0.4</livestreet>
         <plugins>
         </plugins>
     </requires>

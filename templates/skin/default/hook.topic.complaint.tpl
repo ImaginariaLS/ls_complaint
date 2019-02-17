@@ -3,13 +3,14 @@
         {$aLang.plugin.complaint.button.complaint}
     </button>
 </li>
-{* Модальное окно после загрузки переместиться в конец страницы*}
+{* Модальное окно после загрузки переместится в конец страницы *}
 <div class="modal modal-complaint-window" id="window_complaint">
     <header class="modal-header">
         <h3>{$aLang.plugin.complaint.dialog_title}</h3>
         <a href="#" class="close jqmClose"></a>
     </header>
-    <form method="POST" action="" enctype="multipart/form-data" id="form_complaint" onsubmit="return false;" class="modal-content">
+    <form method="POST" action="" enctype="multipart/form-data" id="form_complaint" onsubmit="return false;"
+          class="modal-content">
         <input type="hidden" id="form_complaint_topic_id" name="topic_id" value="0">
         <p>
             <label for="complaint_text">{$aLang.plugin.complaint.complaint_text}</label>

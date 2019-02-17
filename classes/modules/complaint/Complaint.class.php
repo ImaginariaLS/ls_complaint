@@ -13,7 +13,7 @@
 class PluginComplaint_ModuleComplaint extends Module
 {
     protected $oMapper;
-    
+
     /**
      * Инициализация плагина
      *
@@ -23,7 +23,7 @@ class PluginComplaint_ModuleComplaint extends Module
     {
         $this->oMapper = Engine::GetMapper(__CLASS__);
     }
-    
+
     /**
      * Добавляем жалобу
      *
@@ -39,7 +39,7 @@ class PluginComplaint_ModuleComplaint extends Module
         }
         return false;
     }
-    
+
     /**
      * Обновляем жалобу
      *
@@ -55,7 +55,7 @@ class PluginComplaint_ModuleComplaint extends Module
         }
         return false;
     }
-    
+
     /**
      * Удаляем жалобу
      *
@@ -76,7 +76,23 @@ class PluginComplaint_ModuleComplaint extends Module
         $this->oMapper->DeleteComplaint($iComplaintId);
         return true;
     }
-    
+
+    /**
+     * Проверяем отправлял ли пользователь жалобу на топик
+     * @param integer $iTopicId
+     * @param integer $iUserId
+     * @return integer
+     */
+    public function CheckComplaintByTarget($iTopicId, $iUserId)
+    {
+        $aFilter = array(
+            'topic_id' => $iTopicId,
+            'user_id' => $iUserId,
+        );
+        $aComplaints = $this->GetComplaintsByFilter($aFilter, 0, 0, array(), true);
+        return $aComplaints['count'];
+    }
+
     /**
      * Поиск по-фильтру жалобы
      * @param array $aFilter
@@ -106,7 +122,7 @@ class PluginComplaint_ModuleComplaint extends Module
         }
         return $data;
     }
-    
+
     /**
      * Количество жалоб по-фильтру
      * @param array $aFilter
@@ -121,7 +137,7 @@ class PluginComplaint_ModuleComplaint extends Module
         }
         return $data;
     }
-    
+
     /**
      * Получаем дополнительные данные объекта
      * @param array $aComplaints
@@ -137,23 +153,7 @@ class PluginComplaint_ModuleComplaint extends Module
         }
         return $aComplaintsNew;
     }
-    
-    /**
-     * Проверяем отправлял ли пользователь жалобу на топик
-     * @param integer $iTopicId
-     * @param integer $iUserId
-     * @return integer
-     */
-    public function CheckComplaintByTarget($iTopicId, $iUserId)
-    {
-        $aFilter = array(
-            'topic_id' => $iTopicId,
-            'user_id' => $iUserId,
-        );
-        $aComplaints = $this->GetComplaintsByFilter($aFilter, 0, 0, array(), true);
-        return $aComplaints['count'];
-    }
-    
+
     /**
      * Отправляем админу уведомление
      * @param object $oComplaint
@@ -173,7 +173,14 @@ class PluginComplaint_ModuleComplaint extends Module
             __CLASS__
         );
     }
-    
+
+    /**
+     * Заглушка функции "можно ли подавать жалобу?"
+     *
+     * планируется ограничение по дате регистрации, рейтингу и так далее
+     *
+     * @return bool
+     */
     public function CheckAbusingAvailable()
     {
         return true;

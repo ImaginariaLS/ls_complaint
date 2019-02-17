@@ -15,23 +15,13 @@ class PluginComplaint_ActionComplaint extends ActionPlugin
     protected $oUserCurrent = null;
     protected $sMenuHeadItemSelect = 'complaint';
     protected $sMenuItemSelect = 'complaint';
-    
+
     public function Init()
     {
         $this->oUserCurrent = $this->User_GetUserCurrent();
         $this->SetTemplateAction('index');
     }
-    
-    /**
-     * Регистрируем евенты
-     */
-    protected function RegisterEvent()
-    {
-        $this->AddEvent('ajax_complaint', 'EventAjaxComplaint');
-        $this->AddEventPreg('/^admin$/i','/^(page([1-9]\d{0,5}))?$/i','EventAdmin');
-        $this->AddEvent('admin', 'EventAdmin');
-    }
-    
+
     /**
      * Обработка
      */
@@ -85,7 +75,7 @@ class PluginComplaint_ActionComplaint extends ActionPlugin
             $this->Message_AddErrorSingle($this->Lang_Get('system_error'), $this->Lang_Get('error'));
         }
     }
-    
+
     /**
      * Админка
      */
@@ -94,7 +84,7 @@ class PluginComplaint_ActionComplaint extends ActionPlugin
         if (!$this->oUserCurrent or !$this->oUserCurrent->isAdministrator()) {
             return parent::EventNotFound();
         }
-        $iPage=$this->GetParamEventMatch(0,2) ? $this->GetParamEventMatch(0,2) : 1;
+        $iPage = $this->GetParamEventMatch(0, 2) ? $this->GetParamEventMatch(0, 2) : 1;
         /**
          * Получаем список жалоб
          */
@@ -113,5 +103,15 @@ class PluginComplaint_ActionComplaint extends ActionPlugin
          * Устанавливаем шаблон вывода
          */
         $this->SetTemplateAction('admin');
+    }
+
+    /**
+     * Регистрируем евенты
+     */
+    protected function RegisterEvent()
+    {
+        $this->AddEvent('ajax_complaint', 'EventAjaxComplaint');
+        $this->AddEventPreg('/^admin$/i', '/^(page([1-9]\d{0,5}))?$/i', 'EventAdmin');
+        $this->AddEvent('admin', 'EventAdmin');
     }
 }

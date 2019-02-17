@@ -21,7 +21,7 @@ class PluginComplaint_ModuleComplaint_MapperComplaint extends Mapper
     public function AddComplaint(PluginComplaint_ModuleComplaint_EntityComplaint $oComplaint)
     {
         $oComplaint->setDateAdd(date('Y-m-d H:i:s'));
-        
+
         $sql = "INSERT INTO " . Config::Get('db.table.complaint.complaint') . "
 			(
 			user_id,
@@ -36,7 +36,7 @@ class PluginComplaint_ModuleComplaint_MapperComplaint extends Mapper
         }
         return false;
     }
-    
+
     /**
      * Обновляем жалобу
      *
@@ -54,7 +54,7 @@ class PluginComplaint_ModuleComplaint_MapperComplaint extends Mapper
         }
         return false;
     }
-    
+
     /**
      * Удаляем жалобу
      *
@@ -73,7 +73,7 @@ class PluginComplaint_ModuleComplaint_MapperComplaint extends Mapper
         }
         return false;
     }
-    
+
     /**
      * Поиск по-фильтру жалобы
      * @param array $aFilter
@@ -113,7 +113,7 @@ class PluginComplaint_ModuleComplaint_MapperComplaint extends Mapper
         }
         return $aComplaints;
     }
-    
+
     /**
      * Поиск по-фильтру всех жалоб
      * @param array $aFilter
@@ -142,14 +142,14 @@ class PluginComplaint_ModuleComplaint_MapperComplaint extends Mapper
         if ($aRows = $this->oDb->select($sql,
             isset($aFilter['user_id']) ? $aFilter['user_id'] : DBSIMPLE_SKIP,
             isset($aFilter['topic_id']) ? $aFilter['topic_id'] : DBSIMPLE_SKIP
-            )) {
+        )) {
             foreach ($aRows as $aRow) {
                 $aComplaints[$aRow['complaint_id']] = $aRow;
             }
         }
         return $aComplaints;
     }
-    
+
     /**
      * Количество жалоб по-фильтру
      * @param array $aFilter
