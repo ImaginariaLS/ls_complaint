@@ -20,10 +20,12 @@ return array(
     'list' => array(
         'date_add' => 'Жалоба добавлена',
         'user' => 'От пользователя',
-        'topic' => 'Топик',
+        'topic' => 'Дискуссия',
         'text' => 'Текст',
         'author' => 'Автор',
         'empty' => 'Список пуст',
+        'user_not_found' => 'Пользователь удалён',
+        'topic_not_found' => 'Дискуссия удалёна',
     ),
     'button' => array(
         'complaint' => 'Пожаловаться',
@@ -35,8 +37,8 @@ return array(
     'dialog_text' => 'Текст',
     'add_ok' => 'Жалоба принята',
     'error' => array(
-        'topic_not_found' => 'Топик не найден',
-        'topic_user_user' => 'Нельзя подавать жалобу на свой топик',
+        'topic_not_found' => 'Дискуссия не найдена',
+        'topic_user_user' => 'Нельзя подавать жалобу на свою дискуссию',
         'complaint_text_limit' => 'текста',
         'already_send' => 'Жалоба уже принята',
     )

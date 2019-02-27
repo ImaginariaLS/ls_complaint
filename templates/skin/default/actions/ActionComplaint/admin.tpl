@@ -37,16 +37,28 @@
                         {$oComplaint->getDateAdd()}
                     </td>
                     <td>
+                        {if $oUser}
                         <a href="{$oUser->getUserWebPath()}">{$oUser->getLogin()}</a>
+                        {else}
+                            {$aLang.plugin.complaint.list.user_not_found}
+                        {/if}
                     </td>
                     <td>
                         {$oComplaint->getText()}
                     </td>
                     <td>
+                        {if $oTopic}
                         <a href="{$oTopic->getUrl()}">{$oTopic->getTitle()|escape:'html'}</a>
+                        {else}
+                            {$aLang.plugin.complaint.list.topic_not_found}
+                        {/if}
                     </td>
                     <td>
+                        {if $oTopicUser}
                         <a href="{$oTopicUser->getUserWebPath()}">{$oTopicUser->getLogin()}</a>
+                        {else}
+                            {$aLang.plugin.complaint.list.user_not_found}
+                        {/if}
                     </td>
                 </tr>
             {/foreach}

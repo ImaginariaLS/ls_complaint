@@ -25,7 +25,7 @@ $config['admin_mail'] = 'admin@admin.adm';
 $config['text']['max_length'] = 250;
 
 // Минимальная длина текста жалобы
-$config['text']['min_length'] = 2;
+$config['text']['min_length'] = 3;
 
 // Сколько жалоб выводить на страницы админки
 $config['per_page'] = 20;

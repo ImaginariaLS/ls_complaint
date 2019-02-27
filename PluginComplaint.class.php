@@ -3,7 +3,7 @@
 /*-------------------------------------------------------
 *
 *   CMS LiveStreet (1.x)
-*   Plugin Complaint v1.0.0
+*   Plugin Complaint v1.1.0
 *   Сделано руками @ Сергей Сарафанов (sersar)
 *   ВК: vk.com/sersar | E-mail: sersar@ukr.net
 *
